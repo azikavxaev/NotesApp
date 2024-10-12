@@ -6,20 +6,21 @@
  */
 
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import AddButton from './src/components/AddButton';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/HomeScreen';
-import HomeFolder from './src/components/HomeFolder';
+import TopTabNavigation from './src/navigation/TopTabNavigation';
+import NoteFolderScreen from './src/screens/NoteFolderScreen';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
+      <StatusBar backgroundColor="transparent" barStyle="dark-content" />
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Home" component={HomeFolder} />
+        <Stack.Screen name="Tabs" component={TopTabNavigation} />
+        <Stack.Screen name="NoteFolder" component={NoteFolderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

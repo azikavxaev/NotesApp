@@ -4,7 +4,7 @@ import {Dimensions} from 'react-native';
 
 const windowHeight = Dimensions.get('window').height;
 
-const AddButton = ({...props}) => {
+const AddButton = props => {
   return (
     <Pressable
       style={({pressed}) => [
@@ -12,6 +12,7 @@ const AddButton = ({...props}) => {
           opacity: pressed ? 0.5 : 1,
         },
         styles.addButton,
+        props.buttonStyle,
       ]}
       {...props}>
       <Text
@@ -29,8 +30,8 @@ export default AddButton;
 const styles = StyleSheet.create({
   addButton: {
     backgroundColor: 'red',
-    height: windowHeight / 15,
-    width: windowHeight / 15,
+    height: windowHeight / 13,
+    width: windowHeight / 13,
     borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
